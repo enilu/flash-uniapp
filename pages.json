@@ -61,7 +61,7 @@
 		}, {
 			"path": "pages/flash/setting/about",
 			"style": {
-				"navigationBarTitleText": "关于邻家小铺"
+				"navigationBarTitleText": "关于我们"
 			}
 		},
 		{
@@ -71,6 +71,34 @@
 			"path": "pages/flash/setting/app",
 			"style": {}
 		},
+		{
+			"path": "pages/flash/login/login",
+			"style": {
+				"navigationBarTitleText": ""
+			}
+		},
+		{
+			"path": "pages/flash/login/passwordLogin",
+			"style": {
+				"navigationBarTitleText": ""
+			}
+		},
+		{
+			"path": "pages/flash/login/smsCode",
+			"style": {
+				"navigationBarTitleText": "登录获取验证码"
+			}
+		}, {
+			"path": "pages/flash/login/privateProtocol",
+			"style": {
+				"navigationBarTitleText": "隐私协议"
+			}
+		}, {
+			"path": "pages/flash/login/userProtocol",
+			"style": {
+				"navigationBarTitleText": "平台使用协议"
+			}
+		},		
 		// 演示-组件
 		{
 			"path": "pages/example/components",

@@ -81,7 +81,7 @@
 			},
 			toLogin() {
 				this.$u.route({
-					url: '/pages/login/login'
+					url: '/pages/flash/login/login'
 				})
 			},
 			todo() {
