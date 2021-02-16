@@ -1,5 +1,5 @@
 <template>
-	<view>
+	<view class="wrap">
 		<u-swiper :list="banner.list"></u-swiper>
 		<u-grid :col="5">
 			<u-grid-item>
@@ -30,12 +30,29 @@
 					<u-grid-item>
 						 
 						<view class="grid-text">{{productList[index].name}}</view>
-						<u-image width="100%" height="300rpx" :src="productList[index].img"></u-image>
+						<u-image width="90%" height="600rpx" :src="productList[index].image"></u-image>
 					</u-grid-item>
 					<u-grid-item>
 					 
 						<view class="grid-text">{{productList[index+1].name}}</view>
-						<u-image width="100%" height="300rpx" :src="productList[index+1].img"></u-image>
+						<u-image width="90%" height="600rpx" :src="productList[index+1].image"></u-image>
+					</u-grid-item>
+				</u-grid>
+			</view>
+		</view>
+		<view class="fu-solutation">
+			<view class="fu-title">解决方案</view>
+			<view class="fu-body">
+				<u-grid :col="2" v-for="(item,index) in solutionList" :key="index" v-if="index%2 === 0">
+					<u-grid-item>
+						 
+						<view class="grid-text">{{solutionList[index].name}}</view>
+						<u-image width="90%" height="600rpx" :src="solutionList[index].image"></u-image>
+					</u-grid-item>
+					<u-grid-item>
+					 
+						<view class="grid-text">{{solutionList[index+1].name}}</view>
+						<u-image width="90%" height="600rpx" :src="solutionList[index+1].image"></u-image>
 					</u-grid-item>
 				</u-grid>
 			</view>
@@ -84,8 +101,16 @@
 					})
 					this.banner.list = bannerList
 					this.newsList = res.data.newsList
-					this.solutionList = res.data.solutionList
-					this.productList = res.data.productList
+					let solutionList = res.data.solutionList
+					let productList = res.data.productList
+					productList.forEach(function(val, index) {
+						val.image = baseApi + '/file/getImgStream?idFile=' + val.img
+					})
+					solutionList.forEach(function(val, index) {
+						val.image = baseApi + '/file/getImgStream?idFile=' + val.img
+					})
+					this.productList = productList
+					this.solutionList = solutionList 
 				})
 			},
 			toDetail(url) {

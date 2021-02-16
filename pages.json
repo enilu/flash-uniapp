@@ -141,7 +141,16 @@
 				}
 			}
 		}
-	],
+	    ,{
+            "path" : "pages/flash/contact/contact",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "联系我们",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+    ],
 	"subPackages": [{
 			"root": "pages/componentsC",
 			"pages": [
@@ -947,7 +956,7 @@
 			},
 
 			{
-				"pagePath": "pages/flash/search/search",
+				"pagePath": "pages/flash/contact/contact",
 				"iconPath": "static/img/nav/contact.png",
 				"selectedIconPath": "static/img/nav/contact_sel.png",
 				"text": "联系"
