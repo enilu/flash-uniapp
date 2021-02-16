@@ -1,8 +1,46 @@
 <template>
 	<view>
 		<u-swiper :list="banner.list"></u-swiper>
-
-		<view>
+		<u-grid :col="5">
+			<u-grid-item>
+				<u-icon name="order" :size="46" color="#2979ff"></u-icon>
+				<view class="grid-text">动态资讯</view>
+			</u-grid-item>
+			<u-grid-item>
+				<u-icon name="grid-fill" :size="46" color="#2979ff"></u-icon>
+				<view class="grid-text">产品服务</view>
+			</u-grid-item>
+			<u-grid-item>
+				<u-icon name="edit-pen-fill" :size="46" color="#2979ff"></u-icon>
+				<view class="grid-text">解决方案</view>
+			</u-grid-item>
+			<u-grid-item>
+				<u-icon name="heart-fill" :size="46" color="#2979ff"></u-icon>
+				<view class="grid-text">精选案例</view>
+			</u-grid-item>
+			<u-grid-item>
+				<u-icon name="phone" :size="46" color="#2979ff"></u-icon>
+				<view class="grid-text">立即咨询</view>
+			</u-grid-item>
+		</u-grid>
+		<view class="fu-product">
+			<view class="fu-title">产品展示</view>
+			<view class="fu-body">
+				<u-grid :col="2" v-for="(item,index) in productList" :key="index" v-if="index%2 === 0">
+					<u-grid-item>
+						 
+						<view class="grid-text">{{productList[index].name}}</view>
+						<u-image width="100%" height="300rpx" :src="productList[index].img"></u-image>
+					</u-grid-item>
+					<u-grid-item>
+					 
+						<view class="grid-text">{{productList[index+1].name}}</view>
+						<u-image width="100%" height="300rpx" :src="productList[index+1].img"></u-image>
+					</u-grid-item>
+				</u-grid>
+			</view>
+		</view>
+		<view class="fu-news">
 			<view class="fu-title">热门资讯</view>
 			<view class="fu-body">
 				<u-row class="fu-item" v-for="(item,index) in newsList" :key="index">
@@ -15,6 +53,7 @@
 				</u-row>
 			</view>
 		</view>
+
 	</view>
 </template>
 
