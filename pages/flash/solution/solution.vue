@@ -6,12 +6,12 @@
 			<view class="fu-title">解决方案</view>
 			<view class="fu-body">
 				<u-grid :col="2" v-for="(item,index) in solutionList" :key="index" v-if="index%2 === 0">
-					<u-grid-item>
+					<u-grid-item  @click="toDetail(solutionList[index].id,'solution')">
 						 
 						<view class="grid-text">{{solutionList[index].name}}</view>
 						<u-image width="90%" height="600rpx" :src="solutionList[index].image"></u-image>
 					</u-grid-item>
-					<u-grid-item>
+					<u-grid-item  @click="toDetail(solutionList[index+1].id,'solution')">
 					 
 						<view class="grid-text">{{solutionList[index+1].name}}</view>
 						<u-image width="90%" height="600rpx" :src="solutionList[index+1].image"></u-image>
@@ -56,9 +56,11 @@
 				  
 					this.solutionList = solutionList 
 				})
-			},
-			toDetail(url) {
-
+			},			
+			toDetail(id,type) {
+				this.$u.route({
+					url: '/pages/flash/news/detail?id='+id+'&type='+type
+				})
 			}
 		 
 		}

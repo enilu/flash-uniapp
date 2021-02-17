@@ -2,7 +2,7 @@
 	<view class="wrap">
 		<view class="top"></view>
 		<view class="content">
-			<view class="title">欢迎登录webflash</view>
+			<view class="title">欢迎登录</view>
 			<u-form-item>
 				<u-input type="number" v-model="tel" placeholder="请输入手机号" />
 			</u-form-item> 
@@ -68,7 +68,7 @@
 				}
 				this.$u.post('sendSmsCode?mobile=' + this.tel).then(response => {
 					this.$u.route({
-						url: '/pages/login/smsCode',
+						url: '/pages/flash/login/smsCode',
 						params: {
 							mobile: this.tel,
 							result: response

@@ -19,8 +19,8 @@
 
 		<view class="u-m-t-20">
 			<u-cell-group>
-				<u-cell-item icon="info-circle" title="关于我们" @click="openPage('/pages/flash/setting/about')"></u-cell-item>
-				<u-cell-item icon="file-text" title="在线文档" @click="openPage('/pages/flash/setting/document')"></u-cell-item>
+				<u-cell-item icon="info-circle" title="关于我们" @click="openPageWithNoLogin('/pages/flash/setting/about')"></u-cell-item>
+				<u-cell-item icon="file-text" title="在线文档" @click="openPageWithNoLogin('/pages/flash/setting/document')"></u-cell-item>
 
 			</u-cell-group>
 		</view>
@@ -89,9 +89,14 @@
 					this.user = user;
 				}
 			},
+			openPageWithNoLogin(url){
+				this.$u.route({
+					url: url
+				})
+			},
 			openPage(url) {
 				if (this.user.nickName == '未登录') {
-					this.$u.route('/pages/login/login');
+					this.$u.route('/pages/flash/login/login');
 					return;
 				}				
 				this.$u.route({
@@ -142,7 +147,7 @@
 				this.$u.vuex('vuex_user', {
 					nickName: '未登录'
 				});
-				this.$u.route('/pages/login/login')
+				this.$u.route('/pages/flash/login/login')
 			}
 		}
 	}

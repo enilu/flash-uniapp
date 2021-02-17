@@ -19,7 +19,7 @@
 
 		<view class="u-m-t-20">
 			<u-cell-group>
-				<u-cell-item icon="list" title="我的订单" @click="openPage('/pages/order/list')"></u-cell-item>
+				<u-cell-item icon="heart" title="我的收藏" @click="openPage('/pages/order/list')"></u-cell-item>
 			</u-cell-group>
 		</view>
 

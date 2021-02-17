@@ -1,11 +1,11 @@
 <template>
 	<view class="wrap">
 		<view style="text-align: center;">
-			<image class="logo" src="/static/img/logo.jpg" mode="widthFix"></image>
-			<view class="version">alpha2020</view>
+			<image class="logo" src="/static/img/logo.png" mode="widthFix"></image>
+			<view class="version">V1.0</view>
 			<view class="bottom">
 				<view>版权信息</view>
-				<view>本项目遵循MIT开源协议，意味着您无需支付任何费用，也无需授权，即可将linjiashop-uniapp应用到您的产品中</view>
+				<view>本项目遵循MIT开源协议，意味着您无需支付任何费用，也无需授权，即可将flash-uniapp应用到您的产品中</view>
 
 			</view>
 		</view>

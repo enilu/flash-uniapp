@@ -5,17 +5,12 @@
 		<view class="fu-product">
 			<view class="fu-title">精选案例</view>
 			<view class="fu-body">
-				<u-grid :col="2" v-for="(item,index) in caseList" :key="index" v-if="index%2 === 0">
-					<u-grid-item>
-						 
-						<view class="grid-text">{{caseList[index].name}}</view>
-						<u-image width="90%" height="600rpx" :src="caseList[index].image"></u-image>
+				<u-grid :col="1" v-for="(item,index) in caseList" :key="index">
+					<u-grid-item @click="toDetail(item.id,'case')">						 
+						<view class="grid-text">{{item.name}}</view>
+						<u-image width="90%" height="600rpx" :src="item.image"></u-image>
 					</u-grid-item>
-					<u-grid-item>
 					 
-						<view class="grid-text">{{caseList[index+1].name}}</view>
-						<u-image width="90%" height="600rpx" :src="caseList[index+1].image"></u-image>
-					</u-grid-item>
 				</u-grid>
 			</view>
 		</view>
@@ -57,8 +52,10 @@
 					this.caseList = caseList 
 				})
 			},
-			toDetail(url) {
-
+			toDetail(id,type) {
+				this.$u.route({
+					url: '/pages/flash/news/detail?id='+id+'&type='+type
+				})
 			}
 		 
 		}

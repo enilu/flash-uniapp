@@ -9,7 +9,7 @@
 					<u-col :span="3" class="fu-img">
 						<u-image width="100rpx" height="100rpx" src="http://enilu.gitee.io/web-flash/logo.png" @click="toDetail(item.id)"></u-image>
 					</u-col>
-					<u-col :span="9" @click="toDetail(item.id)">
+					<u-col :span="9" @click="toDetail(item.id,'news')">
 						<view class="fu-descript">{{item.desc}}</view>
 					</u-col>
 				</u-row>
@@ -45,8 +45,10 @@
 					this.newsList = res.data.list
 				})
 			},
-			toDetail(url) {
-
+			toDetail(id,type) {
+				this.$u.route({
+					url: '/pages/flash/news/detail?id='+id+'&type='+type
+				})
 			}
 		}
 	}

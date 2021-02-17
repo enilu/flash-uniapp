@@ -66,7 +66,9 @@
 		},
 		{
 			"path": "pages/flash/setting/document",
-			"style": {}
+			"style": {
+				"navigationBarTitleText": "在线文档"
+			}
 		}, {
 			"path": "pages/flash/setting/app",
 			"style": {}
@@ -968,7 +970,7 @@
 	},
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
-		"navigationBarTitleText": "uView",
+		"navigationBarTitleText": "flash-uniapp",
 		"navigationBarBackgroundColor": "#FFFFFF",
 		"backgroundColor": "#FFFFFF"
 	},
