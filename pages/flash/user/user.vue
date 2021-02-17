@@ -116,8 +116,7 @@
 					param += '&response_type=code'
 					param += '&scope=snsapi_base'
 					param += '&redirect_uri=' + encodeURIComponent(redirectUrl)
-					param += '&state=linjiashop#wechat_redirect'
-					console.log('url:', 'https://open.weixin.qq.com/connect/oauth2/authorize?' + param)
+					param += '&state=linjiashop#wechat_redirect' 
 					window.location.href = 'https://open.weixin.qq.com/connect/oauth2/authorize?' + param
 				})
 			}

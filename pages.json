@@ -150,6 +150,42 @@
             }
             
         }
+        ,{
+            "path" : "pages/flash/product/product",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "产品和服务",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/flash/case/case",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "精选案例",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/flash/solution/solution",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "解决方案",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/flash/news/detail",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
     ],
 	"subPackages": [{
 			"root": "pages/componentsC",
