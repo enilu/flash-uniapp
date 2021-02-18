@@ -9,7 +9,7 @@
 	export default {
 		data() {
 			return {
-				url:'http://fir.microapp.store/linjiashop'
+				url:'http://fir.microapp.store/webflash'
 			}
 		},
 		methods: {
