@@ -13,6 +13,9 @@
 - 一套代码，可以发布到H5，app（android，ios），小程序等多平台
 - 该项目后端接口基于web-flash的api服务
 
+## 演示
+- H5:[http://flash-uniapp.enilu.cn/](http://flash-uniapp.enilu.cn/)
+- app:[http://fir.microapp.store/webflash](http://fir.microapp.store/webflash)
 ## 快速入门
 - 使用HBuilderX打开本项目即可正常开发
 - flash-uniapp是一个标准的uniapp项目，开发入门参考uniapp即可，建议开发之前先了解[uniapp](https://uniapp.dcloud.io/)
