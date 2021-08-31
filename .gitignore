@@ -1,2 +1,4 @@
 unpackage/
 package-lock.json
+.idea/
+.hbuilderx/

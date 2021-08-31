@@ -5,9 +5,9 @@
 				<u-avatar :src="vuex_avatar" size="140"></u-avatar>
 			</view>
 			<view class="u-flex-1">
-				<view class="u-font-18 u-p-b-20">{{vuex_user.nickName}}</view>
-				<view class="u-font-14 u-tips-color" v-if="vuex_user.nickName !== '未登录'">ID:{{vuex_user.mobile}}</view>
-				<view class="u-font-14 u-tips-color" v-if="vuex_user.nickName == '未登录'" @click="toLogin">点击登录flash-uniapp账号</view>
+				<view class="u-font-18 u-p-b-20">{{vuex_user.name}}</view>
+				<view class="u-font-14 u-tips-color" v-if="vuex_user.name !== '未登录'">ID:{{vuex_user.phone}}</view>
+				<view class="u-font-14 u-tips-color" v-if="vuex_user.name == '未登录'" @click="toLogin">点击登录flash-uniapp账号</view>
 			</view>
 			<!-- <view class="u-m-l-10 u-p-10">
 				<u-icon name="scan" color="#969799" size="28"></u-icon>
@@ -61,7 +61,7 @@
 		methods: {
 			initH5() {
 				
-				if (this.vuex_user.nickName !=='未登录' && this.vuex_user.refreshWechatInfo === true) {
+				if (this.vuex_user.name !=='未登录' && this.vuex_user.refreshWechatInfo === true) {
 					const url = window.location.href
 					if (url.indexOf('localhost') > -1 || url.indexOf('127.0.0.1') > -1) {
 					} else {

@@ -18,9 +18,9 @@
 				<u-icon name="heart-fill" :size="46" color="#2979ff"></u-icon>
 				<view class="grid-text">精选案例</view>
 			</u-grid-item>
-			<u-grid-item @click="toTab('/pages/flash/contact/contact')">
+			<u-grid-item @click="scanForLogin">
 				<u-icon name="phone" :size="46" color="#2979ff"></u-icon>
-				<view class="grid-text">立即咨询</view>
+				<view class="grid-text">扫码登录</view>
 			</u-grid-item>
 		</u-grid>
 		<view class="fu-product">
@@ -128,6 +128,16 @@
 					url: url,
 					type: 'tab'
 				})
+			},
+			scanForLogin(){
+				// 只允许通过相机扫码
+				uni.scanCode({
+				    onlyFromCamera: true,
+				    success: function (res) {
+				        console.log('条码类型：' + res.scanType);
+				        console.log('条码内容：' + res.result);
+				    }
+				});
 			}
 		}
 	}

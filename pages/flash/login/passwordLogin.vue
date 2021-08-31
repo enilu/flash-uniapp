@@ -3,7 +3,7 @@
 		<view class="content">
 			<view class="title">密码登录</view>
 			<u-form-item>
-			<u-input   type="number" v-model="tel" placeholder="请输入手机号/账号" />
+			<u-input   type="string" v-model="tel" placeholder="请输入手机号/账号" />
 			</u-form-item>
 			<u-form-item>
 			<u-input   type="password" v-model="password" placeholder="请输入密码" />
@@ -37,7 +37,8 @@
 		computed: {
 			inputStyle() {
 				let style = {};
-				if (this.tel && this.tel.length == 11 && this.tel.startsWith('1')) {
+				// if (this.tel && this.tel.length == 11 && this.tel.startsWith('1')) {
+					if (this.tel ) {
 					style.color = "#fff";
 					style.backgroundColor = this.$u.color['warning'];
 				}
@@ -46,23 +47,23 @@
 		},
 		methods: {
 			submit() {
-
-				if (!(this.tel && this.tel.length == 11 && this.tel.startsWith('1'))) {
-					this.$u.toast('请输入正确手机号');
-					return;
-				}
-				this.$u.post('loginByPass?mobile=' + this.tel + '&password=' + this.password).then(res => {
-					this.$u.vuex('vuex_token', res.token);
-					this.$u.vuex('vuex_user', res.user);
-					console.log('user', res.user)
-					if (res.user.avatar && res.user.avatar !== '') {
-						console.log('avatar', this.baseApi + '/file/getImgStream?idFile=' + res.user.avatar);
-						this.$u.vuex('vuex_avatar', this.baseApi + '/file/getImgStream?idFile=' + res.user.avatar);
-					}
-					this.$u.route({
-						type: 'switchTab',
-						url: '/pages/flash/user/user'
+				this.$u.post('account/login?username=' + this.tel + '&password=' + this.password).then(res => {
+					console.log('response',res)
+					this.$u.vuex('vuex_token', res.token)
+					this.$u.get('account/info').then(res2 => {
+						console.log('user', res2)
+						this.$u.vuex('vuex_user', res2.profile)
+						if (res2.profile && res2.profile.avatar !== '') {
+							console.log('avatar', this.baseApi + '/file/getImgStream?idFile=' + res2.profile.avatar);
+							this.$u.vuex('vuex_avatar', this.baseApi + '/file/getImgStream?idFile=' + res2.profile.avatar);
+						}
+						this.$u.route({
+							type: 'switchTab',
+							url: '/pages/flash/user/user'
+						})
 					})
+				
+					
 				}).catch(res => {
 					console.log("err", res);
 					this.$u.toast(res.msg);
