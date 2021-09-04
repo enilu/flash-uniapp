@@ -130,10 +130,23 @@
 				})
 			},
 			scanForLogin(){
+				if(vuex_user.name == '未登录'){
+					this.$u.toast('请先在手机端APP登录');
+					return;
+				}
 				// 只允许通过相机扫码
 				uni.scanCode({
 				    onlyFromCamera: true,
 				    success: function (res) {
+						this.$u.toast(JSON.stringify(res))
+						this.$u.toast('扫描成功，自动登录中...')
+						const result = res.result;
+						this.$u.post('account/qrcode/login?account=' + vuex_user.name + '&qrcode=' + result+'&confirm=1').then(res => {
+							this.$u.toast(JSON.stringify(res));
+						})catch( err =>{
+							this.$u.tast(JSON.stringify(err));
+							this.$u.toast(err.msg);
+						})
 				        console.log('条码类型：' + res.scanType);
 				        console.log('条码内容：' + res.result);
 				    }

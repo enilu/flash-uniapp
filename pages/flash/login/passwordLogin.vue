@@ -51,7 +51,6 @@
 					console.log('response',res)
 					this.$u.vuex('vuex_token', res.token)
 					this.$u.get('account/info').then(res2 => {
-						console.log('user', res2)
 						this.$u.vuex('vuex_user', res2.profile)
 						if (res2.profile && res2.profile.avatar !== '') {
 							console.log('avatar', this.baseApi + '/file/getImgStream?idFile=' + res2.profile.avatar);
