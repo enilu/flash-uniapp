@@ -145,7 +145,7 @@
 			logout() {
 				this.$u.vuex('vuex_token', '');
 				this.$u.vuex('vuex_user', {
-					nickName: '未登录'
+					name: '未登录'
 				});
 				this.$u.route('/pages/flash/login/login')
 			}

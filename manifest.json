@@ -2,8 +2,8 @@
     "name" : "flash-uniapp",
     "appid" : "__UNI__EA93A4B",
     "description" : "多平台快速开发的UI框架",
-    "versionName" : "1.8.3",
-    "versionCode" : "100",
+    "versionName" : "1.9",
+    "versionCode" : 20210906,
     "transformPx" : false,
     "app-plus" : {
         // APP-VUE分包，可提APP升启动速度，2.7.12开始支持，兼容微信小程序分包方案，默认关闭

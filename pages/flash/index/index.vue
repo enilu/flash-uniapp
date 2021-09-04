@@ -2,6 +2,10 @@
 	<view class="wrap">
 		<u-swiper :list="banner.list"></u-swiper>
 		<u-grid :col="5">
+			<u-grid-item @click="scanForLogin">
+				<u-icon name="scan" :size="46" color="#2979ff"></u-icon>
+				<view class="grid-text">扫码登录</view>
+			</u-grid-item>
 			<u-grid-item @click="toTab('/pages/flash/news/news')">
 				<u-icon name="order" :size="46" color="#2979ff"></u-icon>
 				<view class="grid-text">动态资讯</view>
@@ -18,10 +22,7 @@
 				<u-icon name="heart-fill" :size="46" color="#2979ff"></u-icon>
 				<view class="grid-text">精选案例</view>
 			</u-grid-item>
-			<u-grid-item @click="scanForLogin">
-				<u-icon name="phone" :size="46" color="#2979ff"></u-icon>
-				<view class="grid-text">扫码登录</view>
-			</u-grid-item>
+			
 		</u-grid>
 		<view class="fu-product">
 			<view class="fu-title">产品展示</view>
@@ -88,6 +89,7 @@
 		},
 		onLoad() {
 			this.init()
+			console.log('vuexuser',this.vuex_user)
 		},
 		methods: {
 			init() {
@@ -130,25 +132,23 @@
 				})
 			},
 			scanForLogin(){
-				if(vuex_user.name == '未登录'){
+				if(this.vuex_user.name == '未登录'){
 					this.$u.toast('请先在手机端APP登录');
 					return;
 				}
 				// 只允许通过相机扫码
+				const me = this
 				uni.scanCode({
 				    onlyFromCamera: true,
 				    success: function (res) {
-						this.$u.toast(JSON.stringify(res))
-						this.$u.toast('扫描成功，自动登录中...')
+						console.log('res',res)				
 						const result = res.result;
-						this.$u.post('account/qrcode/login?account=' + vuex_user.name + '&qrcode=' + result+'&confirm=1').then(res => {
-							this.$u.toast(JSON.stringify(res));
-						})catch( err =>{
-							this.$u.tast(JSON.stringify(err));
-							this.$u.toast(err.msg);
-						})
-				        console.log('条码类型：' + res.scanType);
-				        console.log('条码内容：' + res.result);
+						me.$u.post('account/qrcode/login?phone=' + me.vuex_user.phone + '&qrcode=' + result+'&confirm=1').then(res => {
+							console.log('response2',res);
+							me.$u.toast('登录成功');
+						}).catch(err => {  
+							me.$u.toast(err.msg);
+						}); 
 				    }
 				});
 			}

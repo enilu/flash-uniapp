@@ -3,10 +3,10 @@
 		<view class="content">
 			<view class="title">密码登录</view>
 			<u-form-item>
-			<u-input   type="string" v-model="tel" placeholder="请输入手机号/账号" />
+				<u-input type="string" v-model="account" placeholder="请输入手机号/账号" />
 			</u-form-item>
 			<u-form-item>
-			<u-input   type="password" v-model="password" placeholder="请输入密码" />
+				<u-input type="password" v-model="password" placeholder="请输入密码" />
 			</u-form-item>
 			<button @tap="submit" :style="[inputStyle]" class="getSmsCode">登录</button>
 			<view class="alternative">
@@ -30,15 +30,14 @@
 	export default {
 		data() {
 			return {
-				tel: '',
+				account: '',
 				password: ''
 			}
 		},
 		computed: {
 			inputStyle() {
 				let style = {};
-				// if (this.tel && this.tel.length == 11 && this.tel.startsWith('1')) {
-					if (this.tel ) {
+				if (this.account) {
 					style.color = "#fff";
 					style.backgroundColor = this.$u.color['warning'];
 				}
@@ -47,13 +46,11 @@
 		},
 		methods: {
 			submit() {
-				this.$u.post('account/login?username=' + this.tel + '&password=' + this.password).then(res => {
-					console.log('response',res)
+				this.$u.post('account/login?username=' + this.account + '&password=' + this.password).then(res => {
 					this.$u.vuex('vuex_token', res.token)
 					this.$u.get('account/info').then(res2 => {
 						this.$u.vuex('vuex_user', res2.profile)
 						if (res2.profile && res2.profile.avatar !== '') {
-							console.log('avatar', this.baseApi + '/file/getImgStream?idFile=' + res2.profile.avatar);
 							this.$u.vuex('vuex_avatar', this.baseApi + '/file/getImgStream?idFile=' + res2.profile.avatar);
 						}
 						this.$u.route({
@@ -61,10 +58,7 @@
 							url: '/pages/flash/user/user'
 						})
 					})
-				
-					
 				}).catch(res => {
-					console.log("err", res);
 					this.$u.toast(res.msg);
 				})
 			},

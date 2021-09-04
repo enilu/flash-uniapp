@@ -8,7 +8,7 @@
 	export default {
 		data() {
 			return {
-				url:'http://enilu.gitee.io/web-flash/'
+				url:'http://webflash.enilu.cn'
 			}
 		},
 		methods: {
